@@ -1,38 +1,206 @@
-.App {
-  text-align: center;
+*{margin:0px; padding:0px;}
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Savate:ital,wght@0,200..900;1,200..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+
+
+body {
+  font-family: "Lato", sans-serif !important;
+  font-size: 14px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.bg-blue {
+  background-color: #155dfc;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.headerWrapper .top-strip{
+  padding: 8px 0px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.headerWrapper .top-strip p{
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.headerWrapper .header {
+  width: 100%;
+  height: auto;
+  padding: 15px 0px;
+  padding-left: 34%;
+}
+
+.logoWrapper img{
+  width: 100%;
+}
+
+.part2 p{
+  font-size: 60px;
+  color: #093b78;
+}
+
+.headerWrapper-2 {
+  width: 100%;
+}
+.headerWrapper-2 .welcome-tagline{
+  font-size: 30px;
+}
+
+.role-container{
+  max-width: 420px !important;
+  width: 100% !important;
+  margin: auto;
+  background: #fff;
+  padding: 28px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+
+.role-card {
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.role-card h5 {
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.role-card p {
+  margin: 0;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.role-card:hover {
+  border-color: #2563eb;
+}
+
+.role-card.active {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+.role-card {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.role-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: #f1f5f9;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: 20px;
+  color: #2563eb;
 }
 
-.App-link {
-  color: #61dafb;
+.role-card.active .role-icon {
+  background: #2563eb;
+  color: #ffffff;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.role-card:hover {
+  border-color: #2563eb;
 }
+
+.role-card.active {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+.auth-page {
+  min-height: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-wrapper {
+  display: flex;
+  gap: 40px;
+}
+
+.form-container{
+  max-width: 420px !important;
+  width: 100% !important;
+  margin: auto;
+  background: #fff;
+  padding: 45px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+}
+.features-section {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  background: #ffffff;
+  width: 320px;
+  padding: 28px 22px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  margin: 0 auto 16px;
+}
+
+/* Icon color variants */
+.feature-icon.red {
+  background: #ffe4e6;
+  color: #ef4444;
+}
+
+.feature-icon.blue {
+  background: #dbeafe;
+  color: #2563eb;
+}
+
+.feature-icon.green {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.feature-card h5 {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+
