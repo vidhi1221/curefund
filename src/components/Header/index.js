@@ -1,8 +1,11 @@
 import LogoFirst from '../../assets/images/CureFund-logo-1.jpeg'
 import LogoSecond from '../../assets/images/CureFund-logo-2.png'
 import { Link } from 'react-router-dom'
+import { useLocation } from "react-router-dom";
 
 const Header = () => {
+    const location = useLocation();
+    const isRegister = location.pathname === "/register";
     return(
         <>
             <div className="headerWrapper">
@@ -28,8 +31,12 @@ const Header = () => {
             <div className="headerWrapper-2">
                 <div>
                     <div className="container">
-                        <p className="mb-0 mt-0 text-center welcome-tagline"><b>Welcome to CureFund</b></p>
-                        <p className="mb-0 mt-0 text-center">"Because Every Treatment Deserves Transparency."</p>
+                        <p className="mb-0 mt-0 text-center welcome-tagline"><b>{isRegister ? "Join CureFund" : "Welcome to CureFund"}</b></p>
+                        <p className="mb-0 mt-0 text-center">
+                            {isRegister
+                            ? "Create your account to access secure healthcare services"
+                            : `"Because Every Treatment Deserves Transparency."`}
+                        </p>
                     </div>
                 </div>
             </div>

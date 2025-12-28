@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { FaUser  } from "react-icons/fa";
-import { MdAdminPanelSettings } from "react-icons/md";
+import { MdAdminPanelSettings,MdOutlineEmail } from "react-icons/md";
 import { CiStethoscope } from "react-icons/ci";
+import { RiLockPasswordFill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 
 
 const Login = () => {
@@ -63,12 +65,26 @@ const Login = () => {
                             </p>
                             <form>
                                 <div className="mb-3">
-                                    <label className="form-label">Email Address</label>
-                                    <input type="email" class="form-control" placeholder="Enter Your Email"/>
+                                    <label className="form-label">Email</label>
+                                    <div className="input-icon">
+                                        <MdOutlineEmail className="input-icon__icon" />
+                                        <input
+                                        type="email"
+                                        className="form-control ps-5 text-center"
+                                        placeholder="Enter your email"
+                                        />
+                                    </div>
                                 </div>
                                 <div className="mb-3">
                                     <label className="form-label">Password</label>
-                                    <input type="password" className="form-control"  placeholder="Enter your password"/>
+                                    <div className="input-icon">
+                                        <RiLockPasswordFill className="input-icon__icon" />
+                                        <input
+                                        type="password"
+                                        className="form-control ps-5 text-center"
+                                        placeholder="Enter your password"
+                                        />
+                                    </div>
                                 </div>
                                 <button className="btn btn-primary w-100">
                                     Sign In as {capitalize(selectedRole)}
@@ -82,7 +98,7 @@ const Login = () => {
 
                                 <div className="text-center mt-2">
                                     <span className="text-muted">
-                                    Don’t have an account? <a href="#">Sign up</a>
+                                    Don’t have an account? <Link to={'/register'} className="text-decoration-none">Sign Up</Link>
                                     </span>
                                 </div>
                             </form>

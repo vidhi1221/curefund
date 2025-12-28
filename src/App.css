@@ -52,7 +52,7 @@ body {
   background: #fff;
   padding: 28px;
   border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.20);
 }
 
 .role-card {
@@ -140,7 +140,7 @@ body {
   background: #fff;
   padding: 45px;
   border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.20);
 }
 .features-section {
   display: flex;
@@ -162,7 +162,7 @@ body {
 
 .feature-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.20);
 }
 
 .feature-icon {
@@ -203,4 +203,201 @@ body {
   line-height: 1.5;
 }
 
+.form-control {
+  background-color: #4950575e !important;
+}
 
+.input-icon {
+  position: relative;
+}
+
+.input-icon__icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #6c757d;
+  font-size: 18px;
+  pointer-events: none;
+}
+
+
+
+.register-card {
+  max-width: 650px;
+  margin: auto;
+  padding: 15px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.role-box {
+  margin: 20px 0;
+}
+
+.role-item {
+  display: flex;
+  gap: 15px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.role-item.active {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+textarea {
+  margin-top: 12px;
+}
+
+.btn-primary {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+}
+
+.btn-group {
+  display: flex;
+  gap: 10px;
+}
+.btn-group-2{
+  display: flex;
+  gap: 30px;
+}
+
+.btn-outline {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #2563eb;
+  background: transparent;
+  border-radius: 8px;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.input-icon {
+  position: relative;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 12px;
+  top: 67%;
+  transform: translateY(-50%);
+  color: #6b7280;
+  cursor: pointer;
+}
+
+.step-header {
+  margin-bottom: 15px;
+}
+
+.step-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 70px;
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  color: black;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+
+.back-btn:hover {
+  color: #1d4ed8;
+}
+
+.step-text h4 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  
+}
+
+.step-text p {
+  margin: 4px 0 0;
+  color: #6b7280;
+  font-size: 14px;
+  
+}
+.progress-wrapper {
+  height: 6px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  margin-top: 12px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #2563eb;
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+
+.form-control.filled {
+  background: #e5e7eb;
+  border: 1px solid #374151;
+  border-radius: 6px;
+  padding: 12px;
+  font-size: 14px;
+}
+
+.form-control.filled::placeholder {
+  color: #9ca3af;
+}
+
+textarea.form-control {
+  min-height: 90px;
+  resize: none;
+}
+
+.btn-primary.full-width {
+  width: 100%;
+  margin-top: 24px;
+  padding: 14px;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+}
