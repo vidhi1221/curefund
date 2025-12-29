@@ -48,17 +48,7 @@ const PasswordRecovery = () => {
                 <div className="form-group">
                     <label>OTP</label>
                     <div className="input-icon">
-                        <input
-                        className={`form-control filled ${
-                            otpVerified ? "otp-success" : ""
-                        }`}
-                        name="otp"
-                        placeholder="Enter OTP"
-                        value={formData.otp}
-                        onChange={handleChange}
-                        disabled={otpVerified}
-                        />
-
+                        <input className={`form-control filled ${ otpVerified ? "otp-success" : ""}`} name="otp" placeholder="Enter OTP" value={formData.otp} onChange={handleChange} disabled={otpVerified}/>
                         {/* ✅ Green tick */}
                         {otpVerified && (
                         <span className="success-icon">✔</span>
@@ -68,12 +58,7 @@ const PasswordRecovery = () => {
 
                 {/* VERIFY OTP BUTTON */}
                 {!otpVerified && (
-                    <button
-                    className="btn-primary full-width"
-                    onClick={verifyOtp}
-                    >
-                    Verify OTP
-                    </button>
+                    <button className="btn-primary full-width" onClick={verifyOtp}>Verify OTP </button>
                 )}
 
                 {/* PASSWORD FIELDS (VISIBLE AFTER OTP VERIFIED) */}
@@ -82,18 +67,8 @@ const PasswordRecovery = () => {
                     <div className="form-group">
                         <label>New Password</label>
                         <div className="input-icon">
-                        <input
-                            className="form-control filled"
-                            type={showPassword ? "text" : "password"}
-                            name="newPassword"
-                            placeholder="Create new password"
-                            value={formData.newPassword}
-                            onChange={handleChange}
-                        />
-                        <span
-                            className="eye-icon"
-                            onClick={() => setShowPassword(!showPassword)}
-                        >
+                        <input className="form-control filled" type={showPassword ? "text" : "password"} name="newPassword" placeholder="Create new password" value={formData.newPassword}onChange={handleChange}/>
+                        <span className="eye-icon" onClick={() => setShowPassword(!showPassword)}>
                             {showPassword ? <FaEyeSlash /> : <FaEye />}
                         </span>
                         </div>
@@ -101,20 +76,10 @@ const PasswordRecovery = () => {
 
                     <div className="form-group">
                         <label>Confirm Password</label>
-                        <input
-                        className="form-control filled"
-                        type="password"
-                        name="confirmPassword"
-                        placeholder="Confirm password"
-                        value={formData.confirmPassword}
-                        onChange={handleChange}
-                        />
+                        <input className="form-control filled" type="password" name="confirmPassword" placeholder="Confirm password" value={formData.confirmPassword} onChange={handleChange}/>
                     </div>
 
-                    <button
-                        className="btn-primary full-width"
-                        onClick={resetPassword}
-                    >
+                    <button className="btn-primary full-width" onClick={resetPassword}>
                         Reset Password
                     </button>
                     </>

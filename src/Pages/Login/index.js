@@ -88,9 +88,9 @@ const Login = () => {
                                         />
                                     </div>
                                 </div>
-                                <button className="btn btn-primary w-100">
+                                <Link to={'/home'} className="btn btn-primary w-100">
                                     Sign In as {capitalize(selectedRole)}
-                                </button>
+                                </Link>
 
                                 <div className="text-center mt-3">
                                     <Link to={'/passwordRecovery'} className="text-decoration-none">
