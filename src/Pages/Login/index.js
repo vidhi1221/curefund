@@ -6,6 +6,8 @@ import { RiLockPasswordFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
 
+
+
 const Login = () => {
     const [selectedRole, setSelectedRole] = useState("patient");
     const capitalize = (text) => text.charAt(0).toUpperCase() + text.slice(1);
@@ -59,7 +61,7 @@ const Login = () => {
                     <div className="col-md-5 col-md-6 d-flex justify-content-center">
                         
                         <div className="form-container w-100">
-                            <h4 className="text-center fw-bold">Sign In</h4>
+                            <h4 className="text-center fw-bold"><b>Sign In</b></h4>
                             <p className="text-muted text-center">
                                 Enter your credentials to access your <b>{capitalize(selectedRole)}</b> dashboard
                             </p>
@@ -91,9 +93,9 @@ const Login = () => {
                                 </button>
 
                                 <div className="text-center mt-3">
-                                    <a href="#" className="text-decoration-none">
+                                    <Link to={'/passwordRecovery'} className="text-decoration-none">
                                     Forgot your password?
-                                    </a>
+                                    </Link>
                                 </div>
 
                                 <div className="text-center mt-2">

@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Login from './Pages/Login';
 import Footer from './components/Footer';
 import Register from './Pages/Register';
+import PasswordRecovery from './Pages/PasswordRecovery';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path='/' exact={true} element={<Login/>}/>
         <Route path='/register' exact={true} element={<Register/>}/>
+        <Route path='/passwordRecovery' exact = {true} element={<PasswordRecovery/>}/>
       </Routes>
       <Footer/>
     </BrowserRouter>

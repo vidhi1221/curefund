@@ -401,3 +401,73 @@ textarea.form-control {
   font-size: 15px;
   font-weight: 600;
 }
+
+.forgot-card {
+  max-width: 420px;
+  margin: auto;
+  padding: 30px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.form-group {
+  margin-top: 16px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.form-control.filled {
+  background: #e5e7eb;
+  border: 1px solid #374151;
+  border-radius: 6px;
+  padding: 12px;
+  width: 100%;
+}
+
+.input-icon {
+  position: relative;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.btn-primary.full-width {
+  width: 100%;
+  margin-top: 24px;
+  padding: 12px;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+
+.otp-success {
+  background: #ecfdf5;
+  border: 1px solid #22c55e;
+  color: #065f46;
+  cursor: not-allowed;
+}
+
+
+.success-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #22c55e;
+  font-size: 18px;
+  font-weight: bold;
+}
