@@ -18,6 +18,7 @@ import Campaigns from './Pages/Campaigns';
 import AddGuardian from './Pages/Guardians/addGuardians';
 import MyDonations from './Pages/Campaigns/myDonation';
 import GuardiansOf from './Pages/Guardians/guardianOf';
+import CreateCampaign from './Pages/Campaigns/createCampaigns';
 
 
 function AppLayout() {
@@ -45,7 +46,7 @@ function AppLayout() {
           <Route path="/home/campaigns/myDonation" element={<MyDonations />} />
           <Route path="/home/patient/reviews" element={<PatientReviews />} />
           <Route path="/home/patient/guardiansof" element={<GuardiansOf />} />
-          
+          <Route path="/home/doctor/createCampaigns" element={<CreateCampaign />} />
         </Route>
 
       </Routes>

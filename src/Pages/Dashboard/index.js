@@ -21,7 +21,7 @@ const Dashboard = () => {
     "user",
     JSON.stringify({
         name: "Vidhi",
-        role: "patient",
+        role: "doctor",
         verified: true,
         id: "CF-P-2024-001",
         documents: [
@@ -300,11 +300,9 @@ const Dashboard = () => {
                                 <div className="quick-actions-grid">
                                     <ActionItem icon={<FaUsers />} title="Manage Patients" desc="View and access records" to={'/home/patients'}/>
 
-                                    <ActionItem icon={<FaPlus />} title="Create Campaigns" desc="New fundraising campaigns" to={'/home/campaigns'}/>
+                                    <ActionItem icon={<FaPlus />} title="Create Campaigns" desc="New fundraising campaigns" to={'/home/doctor/createCampaigns'}/>
 
                                     <ActionItem icon={<RiCalendarScheduleFill />} title="Schedule Visit" desc="Approve doctor access"/>
-
-                                    <ActionItem icon={<PiEyeBold />} title="View Campaigns" desc="Track Fundraising" to={'/home/campaigns'}/>
                                 </div>
                             </div>
                         )}
@@ -395,7 +393,7 @@ const Dashboard = () => {
                                 <div className="pc-card">
                                     <div className="pc-header">
                                     <h4>Recent Patients</h4>
-                                    <span className="view-all">View All</span>
+                                    <span className="view-all" onClick={() => navigate("/home/patients")}>View All</span>
                                     </div>
 
                                     <PCItem
@@ -424,7 +422,7 @@ const Dashboard = () => {
                                 <div className="pc-card">
                                     <div className="pc-header">
                                     <h4>Campaign Status</h4>
-                                    <span className="view-all">View All</span>
+                                    <span className="view-all" onClick={() => navigate("/home/campaigns")}>View All</span>
                                     </div>
 
                                     <PCItem
