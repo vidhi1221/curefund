@@ -2,6 +2,8 @@ import { FaBell } from "react-icons/fa";
 import {   Outlet } from "react-router-dom";
 import HomeLogo from "../../assets/images/homePage-logo.png"
 import { NavLink } from "react-router-dom";
+import {  } from "react-icons/fa";
+
 
 
 const Home = () => {
@@ -12,9 +14,6 @@ const Home = () => {
     {isVerified && <span>Verified</span>}
 
     const role = user?.role;
-    // if (!user) {
-    //     return <p>Please login first</p>;
-    // }
     localStorage.setItem(
     "user",
     JSON.stringify({
@@ -34,7 +33,8 @@ const Home = () => {
         {text}
     </NavLink>
     );
-
+    
+    
     return (
         <>
             <div className="headerWrapper">

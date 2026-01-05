@@ -13,9 +13,11 @@ import Documents from './Pages/Documents';
 import Dashboard from './Pages/Dashboard';
 import Guardians from './Pages/Guardians';
 import Patients from  './Pages/Patients';
-import Reviews from './Pages/Reviews';
+import PatientReviews from './Pages/Reviews/patientReview';
 import Campaigns from './Pages/Campaigns';
-
+import AddGuardian from './Pages/Guardians/addGuardians';
+import MyDonations from './Pages/Campaigns/myDonation';
+import GuardiansOf from './Pages/Guardians/guardianOf';
 
 
 function AppLayout() {
@@ -39,7 +41,11 @@ function AppLayout() {
           <Route path="guardians" element={<Guardians />} />
           <Route path="campaigns" element={<Campaigns />} />
           <Route path="patients" element={<Patients />} />
-          <Route path="reviews" element={<Reviews />} />
+          <Route path="/home/guardians/add" element={<AddGuardian />} />
+          <Route path="/home/campaigns/myDonation" element={<MyDonations />} />
+          <Route path="/home/patient/reviews" element={<PatientReviews />} />
+          <Route path="/home/patient/guardiansof" element={<GuardiansOf />} />
+          
         </Route>
 
       </Routes>

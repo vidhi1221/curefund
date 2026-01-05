@@ -61,14 +61,14 @@ const Dashboard = () => {
     const StatCard = ({ title, value, icon, color }) => {
         return (
             <div className="stat-card">
-            <div>
-                <p className="stat-title">{title}</p>
-                <h2 className="stat-value">{value}</h2>
-            </div>
+                <div>
+                    <p className="stat-title">{title}</p>
+                    <h2 className="stat-value">{value}</h2>
+                </div>
 
-            <div className={`stat-icon ${color}`}>
-                {icon}
-            </div>
+                <div className={`stat-icon ${color}`}>
+                    {icon}
+                </div>
             </div>
         );
     };
@@ -76,10 +76,10 @@ const Dashboard = () => {
         navigator.clipboard.writeText(user.id);
         alert("Health ID copied!");
     };
-    const ActionItem = ({ icon, title, desc, to }) => {
-        
+    const ActionItem = ({ icon, title, desc, to , state}) => {
+    
     return (
-        <div className="quick-action-item" onClick={() => navigate(to)} role="button">
+        <div className="quick-action-item" onClick={() => navigate(to,{state})} role="button">
             <div className="quick-action-icon">{icon}</div>
             <div>
                 <h5>{title}</h5>
@@ -165,7 +165,7 @@ const Dashboard = () => {
     return (
         <>
             <div className="dashboardWrapper">
-                <div className="container">
+                <div className="dashboard-1 container">
                     <div>
                         <h4>{capitalize(user.role)} Dashboard</h4>
                         <p>Welcome back, {capitalize(user.name)}</p>
@@ -278,13 +278,13 @@ const Dashboard = () => {
 
                                 {/* Actions */}
                                 <div className="quick-actions-grid">
-                                    <ActionItem icon={<FaUpload />} title="Upload Document" desc="Add new medical records" to={'/home/documents'}/>
+                                    <ActionItem icon={<FaUpload />} title="Upload Document" desc="Add new medical records" to={'/home/documents/'} state={{ openUpload: true }}/>
 
-                                    <ActionItem icon={<FaUsers />} title="Manage Guardians" desc="Update access permissions" to={'/home/guardians'}/>
+                                    <ActionItem icon={<FaUsers />} title="Manage Guardians" desc="Update access permissions" to={'/home/guardians/'}/>
 
-                                    <ActionItem icon={<FaUserCheck />} title="Review Requests" desc="Approve doctor access"/>
+                                    <ActionItem icon={<FaUserCheck />} title="Review Requests" desc="Approve doctor access" to={'/home/patient/reviews/'}/>
 
-                                    <ActionItem icon={<FaCogs />} title="Ward Management" desc="Manage your wards"/>
+                                    <ActionItem icon={<FaCogs />} title="Ward Management" desc="Manage your wards" to='/home/patient/guardiansof/'/>
                                 </div>
                             </div>
                         )}
@@ -336,7 +336,7 @@ const Dashboard = () => {
                                 <div className="activity-card">
                                     <div className="activity-header">
                                     <h4>Recent Documents</h4>
-                                    <span className="view-all">View All</span>
+                                    <span className="view-all" onClick={() => navigate("/home/patient/reviews")}>View All</span>
                                     </div>
 
                                     <ActivityItem
@@ -368,7 +368,7 @@ const Dashboard = () => {
                                 <div className="activity-card">
                                     <div className="activity-header">
                                     <h4>Access Requests</h4>
-                                    <span className="view-all">View All</span>
+                                    <span className="view-all" onClick={() => navigate("/home/patient/guardiansof")}>View All</span>
                                     </div>
 
                                     <ActivityItem
