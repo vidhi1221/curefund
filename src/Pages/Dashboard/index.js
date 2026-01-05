@@ -21,7 +21,7 @@ const Dashboard = () => {
     "user",
     JSON.stringify({
         name: "Vidhi",
-        role: "doctor",
+        role: "auditor",
         verified: true,
         id: "CF-P-2024-001",
         documents: [
@@ -167,8 +167,7 @@ const Dashboard = () => {
             <div className="dashboardWrapper">
                 <div className="dashboard-1 container">
                     <div>
-                        <h4>{capitalize(user.role)} Dashboard</h4>
-                        <p>Welcome back, {capitalize(user.name)}</p>
+                        <h4>Welcome Back, {capitalize(user.role)}</h4>
                     </div>
                     <div>
                         {user.role === "patient" && (
@@ -316,13 +315,11 @@ const Dashboard = () => {
 
                                 {/* Actions */}
                                 <div className="quick-actions-grid">
-                                    <ActionItem icon={<FaUpload />} title="Review Campaigns" desc="Verify pending campaigns" to={'/home/reviews'}/>
+                                    <ActionItem icon={<FaUpload />} title="Review Campaigns" desc="Verify pending campaigns" to={'/home/auditor/campaignReviews'}/>
 
-                                    <ActionItem icon={<FaPlus />} title="Review History" desc="View past decision" to={'/home/reviews'}/>
+                                    <ActionItem icon={<FaPlus />} title="Review History" desc="View past decision" to={'/home/auditor/reviewHistory'}/>
 
                                     <ActionItem icon={<FaUserCheck />} title="Generate Report" desc="Monthly audit summary"/>
-
-                                    <ActionItem icon={<FaPlus />} title="Create Campaigns" desc="New fundraising campaigns" to={'/home/campaigns'}/>
                                 </div>
                             </div>
                         )}
@@ -454,7 +451,7 @@ const Dashboard = () => {
                                 <div className="pr-card">
                                     <div className="pr-header">
                                     <h4>Priority Queue</h4>
-                                    <span className="view-all">View All</span>
+                                    <span className="view-all" onClick={() => navigate('/home/auditor/campaignReviews')} >View All</span>
                                     </div>
 
                                     <PRItem
@@ -476,7 +473,7 @@ const Dashboard = () => {
                                 <div className="pr-card">
                                     <div className="pr-header">
                                     <h4>Recent Reviews</h4>
-                                    <span className="view-all">View All</span>
+                                    <span className="view-all" onClick={() => navigate('/home/auditor/reviewHistory')}>View All</span>
                                     </div>
 
                                     <ReviewItem

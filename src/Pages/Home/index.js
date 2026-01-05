@@ -18,7 +18,7 @@ const Home = () => {
     "user",
     JSON.stringify({
         name: "Vidhi",
-        role: "doctor",
+        role: "auditor",
         verified: true,
         id: "CF-P-2024-001",
     })
@@ -72,7 +72,7 @@ const Home = () => {
                     {role === "auditor" && (
                     <>
                         <NavItem text="Dashboard" to="/home/dashboard" />
-                        <NavItem text="Reviews" to="/home/reviews" />
+                        <NavItem text="Reviews" to="/home/auditor/reviews" />
                         <NavItem text="Campaigns" to="/home/campaigns" />
                     </>
                     )}
