@@ -85,14 +85,6 @@ const StepRegister = () => {
                     <p>Access patient records</p>
                 </div>
                 </div>
-
-                <div className={`role-item ${role === "auditor" ? "active" : ""}`}onClick={() => setRole("auditor")}>
-                <MdAdminPanelSettings className="role-icon" />
-                <div>
-                    <h5>Health Auditor</h5>
-                    <p>Verify medical campaigns</p>
-                </div>
-                </div>
             </div>
 
 

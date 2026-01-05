@@ -437,7 +437,7 @@ textarea.form-control {
 .eye-icon {
   position: absolute;
   right: 12px;
-  top: 50%;
+  top: 72%;
   transform: translateY(-50%);
   cursor: pointer;
 }
@@ -1764,7 +1764,7 @@ textarea.form-control {
 .form-group label {
   font-size: 13px;
   margin-bottom: 6px;
-  color: #e5e7eb;
+  color: #000;
 }
 
 .form-group input,
