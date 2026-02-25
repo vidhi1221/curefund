@@ -3,12 +3,17 @@ import {   Outlet } from "react-router-dom";
 import HomeLogo from "../../assets/images/homePage-logo.png"
 import { NavLink } from "react-router-dom";
 import {  } from "react-icons/fa";
+import { useState, useRef, useEffect } from "react";
+import { FaUser, FaSignOutAlt } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 
 
 const Home = () => {
     const user = JSON.parse(localStorage.getItem("user")) || {};
-
+    const [open, setOpen] = useState(false);
+    const menuRef = useRef();
+    const navigate = useNavigate();
     const isVerified = user?.verified;
 
     {isVerified && <span>Verified</span>}
@@ -18,11 +23,27 @@ const Home = () => {
     "user",
     JSON.stringify({
         name: "Vidhi",
-        role: "auditor",
+        role: "patient",
         verified: true,
         id: "CF-P-2024-001",
     })
     );
+    const handleLogout = () => {
+        localStorage.clear();
+        navigate("/", { replace: true });
+    };
+    // Close dropdown when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+        if (menuRef.current && !menuRef.current.contains(event.target)) {
+            setOpen(false);
+        }
+        };
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
     const NavItem = ({ text, to }) => (
     <NavLink
         to={to}
@@ -33,6 +54,7 @@ const Home = () => {
         {text}
     </NavLink>
     );
+    
     
     
     return (
@@ -85,7 +107,39 @@ const Home = () => {
                     <span className="verified-badge">Verified</span>
                     )}
 
-                    <div className="avatar">{user.name[0]}</div>
+                    {/* <div className="avatar">{user.name[0]}</div> */}
+                    <div className="profile-container" ref={menuRef}>
+                        
+                        {/* JD Avatar */}
+                        <div className="avatar avatar-circle" onClick={() => setOpen(!open)}>
+                            {user.name[0]}
+                        </div>
+
+                        {/* Dropdown */}
+                        {open && (
+                            <div className="profile-dropdown">
+                                <div className="profile-header">
+                                    <h4>{user.name}</h4>
+                                    <p>{user.email}</p>
+                                    <span className="role">{user.role}</span>
+                                </div>
+
+                                <div
+                                    className="dropdown-item"
+                                    onClick={() => navigate("/home/profile")}
+                                >
+                                    <FaUser /> Profile
+                                </div>
+
+                                <div
+                                    className="dropdown-item logout"
+                                    onClick={handleLogout}
+                                >
+                                    <FaSignOutAlt /> Log out
+                                </div>
+                            </div>
+                        )}
+                        </div>
                 </div>
             </header>
             <div className="home-content">

@@ -21,7 +21,7 @@ const Dashboard = () => {
     "user",
     JSON.stringify({
         name: "Vidhi",
-        role: "auditor",
+        role: "patient",
         verified: true,
         id: "CF-P-2024-001",
         documents: [

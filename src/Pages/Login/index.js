@@ -4,14 +4,24 @@ import { MdAdminPanelSettings,MdOutlineEmail } from "react-icons/md";
 import { CiStethoscope } from "react-icons/ci";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 
 
 
 const Login = () => {
     const [selectedRole, setSelectedRole] = useState("patient");
     const capitalize = (text) => text.charAt(0).toUpperCase() + text.slice(1);
+    const navigate = useNavigate();
 
+    const handleLogin = (e) => {
+        e.preventDefault();
+
+        // 🔐 Simulate successful login
+        localStorage.setItem("user", "true");
+        localStorage.setItem("role", selectedRole);
+
+        navigate("/home", { replace: true });
+    };
 
     return(
         <>
@@ -65,7 +75,7 @@ const Login = () => {
                             <p className="text-muted text-center">
                                 Enter your credentials to access your <b>{capitalize(selectedRole)}</b> dashboard
                             </p>
-                            <form>
+                            <form onSubmit={handleLogin}>
                                 <div className="mb-3">
                                     <label className="form-label">Email</label>
                                     <div className="input-icon">
@@ -88,9 +98,9 @@ const Login = () => {
                                         />
                                     </div>
                                 </div>
-                                <Link to={'/home'} className="btn btn-primary w-100">
+                                <button type="submit" className="btn btn-primary w-100">
                                     Sign In as {capitalize(selectedRole)}
-                                </Link>
+                                </button>
 
                                 <div className="text-center mt-3">
                                     <Link to={'/passwordRecovery'} className="text-decoration-none">

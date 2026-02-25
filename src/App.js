@@ -22,6 +22,7 @@ import CreateCampaign from './Pages/Campaigns/createCampaigns';
 import DoctorReviews from './Pages/Reviews/doctorReview';
 import CampaignReviews from './Pages/Reviews/campaignsReview';
 import ReviewHistory from './Pages/Reviews/reviewHistory';
+import ProfileSettings from './Pages/Profile';
 
 
 function AppLayout() {
@@ -53,6 +54,7 @@ function AppLayout() {
           <Route path="/home/auditor/reviews" element={<DoctorReviews />} />
           <Route path="/home/auditor/campaignReviews" element={<CampaignReviews />} />
           <Route path="/home/auditor/reviewHistory" element={<ReviewHistory />} />
+          <Route path="profile" element={<ProfileSettings />} />
         </Route>
 
       </Routes>
