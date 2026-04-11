@@ -10,17 +10,55 @@ import { useNavigate } from "react-router-dom";
 
 const Login = () => {
     const [selectedRole, setSelectedRole] = useState("patient");
-    const capitalize = (text) => text.charAt(0).toUpperCase() + text.slice(1);
-    const navigate = useNavigate();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false);
 
-    const handleLogin = (e) => {
+    const navigate = useNavigate();
+    const capitalize = (text) => text.charAt(0).toUpperCase() + text.slice(1);
+
+    const handleLogin = async (e) => {
         e.preventDefault();
 
-        // 🔐 Simulate successful login
-        localStorage.setItem("user", "true");
-        localStorage.setItem("role", selectedRole);
+        if (!email || !password) {
+            alert("Please enter email and password");
+            return;
+        }
 
-        navigate("/home", { replace: true });
+        try {
+            setLoading(true);
+
+            const response = await fetch("http://localhost:4000/users/getAccount", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    email,
+                    password,
+                    role: selectedRole,
+                }),
+            });
+
+            const data = await response.json();
+
+            if (data.error) {
+                alert(data.message);
+            } else {
+                // ✅ Save user data
+                localStorage.setItem("user", JSON.stringify(data.user));
+                localStorage.setItem("role", data.user.role);
+
+                // ✅ Redirect
+                navigate("/home", { replace: true });
+            }
+
+        } catch (error) {
+            console.error(error);
+            alert("Something went wrong");
+        } finally {
+            setLoading(false);
+        }
     };
 
     return(
@@ -84,6 +122,8 @@ const Login = () => {
                                         type="email"
                                         className="form-control ps-5 text-center"
                                         placeholder="Enter your email"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
                                         />
                                     </div>
                                 </div>
@@ -95,11 +135,16 @@ const Login = () => {
                                         type="password"
                                         className="form-control ps-5 text-center"
                                         placeholder="Enter your password"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
                                         />
                                     </div>
                                 </div>
-                                <button type="submit" className="btn btn-primary w-100">
-                                    Sign In as {capitalize(selectedRole)}
+                                <button type="submit" className="btn btn-primary w-100" disabled={loading}>
+                                    { loading
+                                    ? "Signing in..."
+                                    : `Sign In as ${capitalize(selectedRole)}`
+                                    }
                                 </button>
 
                                 <div className="text-center mt-3">

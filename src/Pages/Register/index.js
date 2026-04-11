@@ -3,12 +3,14 @@ import { FaUser,FaEye,FaEyeSlash,FaArrowLeft   } from "react-icons/fa";
 import { CiStethoscope } from "react-icons/ci";
 import { MdAdminPanelSettings } from "react-icons/md";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const StepRegister = () => {
     const [step, setStep] = useState(1);
     const [role, setRole] = useState("patient");
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         fullName: "",
         email: "",
@@ -37,12 +39,49 @@ const StepRegister = () => {
         setStep(2);
     };
 
-    const handleSubmit = () => {
-        const payload = { role, ...formData };
-        console.log("Final Data:", payload);
-        alert("Account Created Successfully!");
-    };
+    // const handleSubmit = () => {
+    //     const payload = { role, ...formData };
+    //     console.log("Final Data:", payload);
+    //     alert("Account Created Successfully!");
+    // };
+    const handleSubmit = async () => {
+        try {
+            const payload = {
+                fullname: formData.fullName,
+                email: formData.email,
+                password: formData.password,
+                phone_no: formData.phone,
+                dateOfBirth: formData.dob,
+                address: formData.address,
+                emergencyContact: formData.emergencyContact,
+                medicalHistory: formData.medicalHistory,
+                role: role
+            };
 
+            const response = await fetch("http://localhost:4000/users/createAccount", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(payload)
+            });
+
+            const data = await response.json();
+
+            if (data.error) {
+                alert(data.message || data.title);
+            } else {
+                alert("Account Created Successfully!");
+                console.log(data.userCreated);
+                navigate("/");
+            }
+            
+
+        } catch (error) {
+            console.error(error);
+            alert("Something went wrong");
+        }
+    };
     return (
         <div className="register-card">
         {step === 1 && (

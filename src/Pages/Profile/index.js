@@ -4,7 +4,7 @@ const ProfileSettings = () => {
     const user = {
         name: "Vidhi",
         email: "vidhi@gmail.com",
-        role: "patient",
+        role: "doctor",
         verified: true,
         id: "CF-P-2024-001",
     };
